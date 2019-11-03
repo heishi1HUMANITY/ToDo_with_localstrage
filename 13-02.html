@@ -4,14 +4,122 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <title>To-Do</title>
-        <!--<link rel="icon" href="./favicon.ico">-->
-        <link rel="stylesheet" href="./reset.css">        
-        <link rel="stylesheet" href="./main.css">
+        <link rel="stylesheet" href="./css/reset.css">        
+        <link rel="stylesheet" href="./css/main.css">
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Roboto:400,500&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
     </head>
     <body>
 
-        <div id="todo"></div>
+        <div id="wrapper">
 
-        <script src="./script.js"></script>
+            <!--HEADER-->
+            <header>
+                <div class="content">
+                        <img src="./img/menu-24px.svg" alt="menu">
+                        <h1>To-Do</h1>
+                </div>
+            </header>
+            
+            <!--CONTENTS-->
+            <div id="contents">
+                <label>
+                    <input type="checkbox" class="cardInput">
+                    <div class="card">
+                        <div class="top">
+                        <h2>公園　待ち合わせ</h2>
+                        </div>
+                        <div class="down">
+                            <h2>12月18日 10:30</h2>
+                        <div class="buttons">
+                            <button class="mdc-button done">完了</button>
+                        </div>
+                        </div>
+                    </div>
+                </label>
+            </div>
+
+            <div id="contents">
+                <label>
+                    <input type="checkbox" class="cardInput">
+                    <div class="card">
+                        <div class="top">
+                        <h2>公園　待ち合わせ</h2>
+                        </div>
+                        <div class="down">
+                            <h2>12月18日 10:30</h2>
+                        <div class="buttons">
+                            <button class="mdc-button done">完了</button>
+                        </div>
+                        </div>
+                    </div>
+                </label>
+            </div>
+
+            <!--POP UP-->
+            <div class="opacity" onclick="popupHide();"></div>
+            <div id="popup">
+                <div class="popupHeader">
+                    <h2>追加</h2>
+                </div>
+                <div class="popupInbox">
+                    <h2>予定</h2>
+                    <input type="text" id="subject" required>
+                    <h2>時間</h2>
+                    <input type="time" id="time">
+                    <div class="mdc-form-field">
+                        <div class="mdc-checkbox checkbox">
+                            <input type="checkbox" class="mdc-checkbox__native-control" id="checkbox-1"/>
+                            <div class="mdc-checkbox__background">
+                                <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                    <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                </svg>
+                                <div class="mdc-checkbox__mixedmark"></div>
+                            </div>
+                        </div>
+                        <label for="checkbox-1">プッシュ通知</label>
+                    </div>
+                    <button class="mdc-button" onclick="add();">追加</button>
+                </div>
+            </div>
+
+            <!--FAB-->
+            <div id="fab">
+                <button class="mdc-fab" aria-label="Favorite" onclick="popup();">
+                    <span class="mdc-fab__icon material-icons">+</span>
+                </button>
+            </div>
+
+        </div>
+
+
+
+        <script>
+            let popup = () => {
+                document.querySelector('.opacity').setAttribute('style', 'display: block;');
+                document.querySelector('#popup').setAttribute('style', 'left: 0;')        ;
+            }
+
+            let popupHide = () => {
+                document.querySelector('.opacity').setAttribute('style', 'display: none;');
+                document.querySelector('#popup').removeAttribute('style');
+            }
+
+            let add = () => {
+                let subject = document.querySelector('#subject');
+                let time = document.querySelector('#time');
+
+                if(localStorage.getItem('todo') == null){
+                    let object = {
+                        0: {
+                            subject: subject.value,
+                            time: time.value  
+                        }
+                    };
+                }
+            }
+        </script>
+
     </body>
 </html>

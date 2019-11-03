@@ -1,0 +1,222 @@
+@charset "utf-8";
+
+html{
+    font-family: 'Roboto', sans-serif, 'Noto Sans JP', sans-serif;
+}
+
+html *{
+    box-sizing: border-box;
+}
+
+input[type="checkbox"]{
+   display: none;
+}
+
+@media screen and (max-width:780px){
+
+    /*HEADER*/
+    header{
+        height: 60px;
+        background: #DBDBDB;
+        padding: 0 16px;
+        position: relative;
+        box-shadow: 0 3px 6px rgb(0, 0, 0, 0.2);
+        z-index: 300;
+    }
+
+    header .content{
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+
+    header .content *{
+        display: inline-block;
+        vertical-align: middle;
+        color: #707070;
+    }
+
+    header .content img{
+        widows: 24px;
+        height: 24px;
+    }
+
+    header .content h1{
+        margin-left: 51px;
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    /*CONTENTS*/
+
+    .card{
+        transition: 0.5s;
+        margin-top: 16px;
+        box-shadow: 0 3px 6px rgb(0, 0, 0, 0.2);
+        z-index: 50;
+    }
+
+    .card > div{
+        height: 80px;
+        padding: 0 16px;
+        background: #EFEFEF;
+        position: relative;
+    }
+
+    .card .down{
+        transition: all .25s ease;
+        height: 0;
+        overflow: hidden;
+    }
+
+    .card h2{
+        color: #707070;
+        font-size: 24px;
+        font-family: 'Noto Sans JP', sans-serif;
+        font-weight: 400;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        overflow: hidden;
+    }
+
+    .card .down h2{
+        color: #707070;
+        font-size: 16px;
+        font-family: 'Noto Sans JP', sans-serif;
+        font-weight: 400;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+
+    .card .buttons{
+        margin-left: 30px;
+        position: absolute;
+        top: 50%;
+        right: 16px;
+        transform: translate(0, -50%);
+        overflow: hidden;
+    }
+
+    .card .buttons .done{
+        --mdc-theme-primary: #BC4040;
+    }
+
+    .cardInput:checked + .card .down{
+        transition: all .25s ease;
+        height: 80px;
+    }
+
+    /*POP UP*/
+    #popup{
+        height: 320px;
+        width: 100%;
+        padding: 0 32px;
+        position: fixed;
+        top: 40%;
+        left: 100%;
+        transform: translateY(-50%);
+        z-index: 600;
+        transition: .3s;
+        overflow: hidden;
+    }
+
+    .popupHeader{
+        height: 60px;
+        background: #DBDBDB;
+        padding: 0 16px;
+        position: relative;
+        box-shadow: 0 3px 6px rgb(0, 0, 0, 0.2);
+        z-index: 590;
+    }
+
+    .popupHeader h2{
+        font-family: 'Noto Sans JP', sans-serif;
+        font-size: 20px;
+        color: #707070;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        
+    }
+
+    .popupInbox{
+        padding: 15px 16px 51px 16px;
+        box-shadow: 0 3px 6px rgb(0, 0, 0, 0.2);
+        position: relative;
+        background: #ffffff;
+        z-index: 580;
+    }
+
+    .popupInbox h2{
+        font-family: 'Noto Sans JP', sans-serif;
+        font-size: 14px;
+        color: #8D6E63;
+        margin-bottom: 15px;
+    }
+
+    .popupInbox input{
+        width: 100%;
+        line-height: 1.5;
+        font-family: 'Noto Sans JP', sans-serif;
+        font-size: 16px;
+        color: #8D6E63;
+        border: none;
+        border-bottom: #8D6E63 solid 1px;
+        padding: 0 2px;
+        margin-bottom: 15px;
+    }
+
+    .popupInbox input:focus{
+        outline: none;
+        border-bottom: #8D6E63 solid 2px;
+    }
+
+    .popupInbox input::-webkit-clear-button{
+        display: none;
+    }
+
+    .mdc-form-field{
+        width: 100%;
+    }
+    
+    .checkbox{
+        --mdc-theme-secondary: #8D6E63;
+        left: -11px;
+    }
+
+    .mdc-form-field > label{
+        font-family: 'Noto Sans JP', sans-serif;
+        font-size: 14px;
+        color: #8D6E63;
+        margin-left: -11px;
+    }
+
+    .popupInbox .mdc-button{
+        --mdc-theme-primary: #8D6E63;
+        position: absolute;
+        bottom: 16px;
+        right: 16px;
+    }
+
+    .opacity{
+        width: 100vw;
+        height: 100vh;
+        background: #fff;
+        opacity: 0.5;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 400;
+        display: none;
+    }
+
+    /*FAB*/
+    #fab{
+        position: fixed;
+        right: 16px;
+        bottom: 35px;
+        --mdc-theme-secondary: #8D6E63;
+    }
+}
