@@ -9,6 +9,8 @@
         <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Roboto:400,500&display=swap" rel="stylesheet">
 
         <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+
+        <script src="./js/script.js" defer></script>
     </head>
     <body>
 
@@ -17,44 +19,13 @@
             <!--HEADER-->
             <header>
                 <div class="content">
-                        <img src="./img/menu-24px.svg" alt="menu">
                         <h1>To-Do</h1>
                 </div>
             </header>
             
             <!--CONTENTS-->
             <div id="contents">
-                <label>
-                    <input type="checkbox" class="cardInput">
-                    <div class="card">
-                        <div class="top">
-                        <h2>公園　待ち合わせ</h2>
-                        </div>
-                        <div class="down">
-                            <h2>12月18日 10:30</h2>
-                        <div class="buttons">
-                            <button class="mdc-button done">完了</button>
-                        </div>
-                        </div>
-                    </div>
-                </label>
-            </div>
 
-            <div id="contents">
-                <label>
-                    <input type="checkbox" class="cardInput">
-                    <div class="card">
-                        <div class="top">
-                        <h2>公園　待ち合わせ</h2>
-                        </div>
-                        <div class="down">
-                            <h2>12月18日 10:30</h2>
-                        <div class="buttons">
-                            <button class="mdc-button done">完了</button>
-                        </div>
-                        </div>
-                    </div>
-                </label>
             </div>
 
             <!--POP UP-->
@@ -65,9 +36,9 @@
                 </div>
                 <div class="popupInbox">
                     <h2>予定</h2>
-                    <input type="text" id="subject" required>
+                    <input type="text" id="subject" class="popupinput" required>
                     <h2>時間</h2>
-                    <input type="time" id="time">
+                    <input type="time" id="time" class="popupinput">
                     <div class="mdc-form-field">
                         <div class="mdc-checkbox checkbox">
                             <input type="checkbox" class="mdc-checkbox__native-control" id="checkbox-1"/>
@@ -93,32 +64,10 @@
 
         </div>
 
-
+        <script src="https://cdn.jsdelivr.net/npm/push-js@1/dist/Push.min.js"></script>
 
         <script>
-            let popup = () => {
-                document.querySelector('.opacity').setAttribute('style', 'display: block;');
-                document.querySelector('#popup').setAttribute('style', 'left: 0;')        ;
-            }
-
-            let popupHide = () => {
-                document.querySelector('.opacity').setAttribute('style', 'display: none;');
-                document.querySelector('#popup').removeAttribute('style');
-            }
-
-            let add = () => {
-                let subject = document.querySelector('#subject');
-                let time = document.querySelector('#time');
-
-                if(localStorage.getItem('todo') == null){
-                    let object = {
-                        0: {
-                            subject: subject.value,
-                            time: time.value  
-                        }
-                    };
-                }
-            }
+            Push.create("hello world");
         </script>
 
     </body>
