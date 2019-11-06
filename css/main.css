@@ -221,5 +221,6 @@ input[type="checkbox"]{
         right: 16px;
         bottom: 35px;
         --mdc-theme-secondary: #8D6E63;
+        z-index: 350;
     }
 /*}
