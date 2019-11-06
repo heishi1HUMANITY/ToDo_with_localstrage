@@ -2,6 +2,7 @@
 
 html{
     font-family: 'Roboto', sans-serif, 'Noto Sans JP', sans-serif;
+    margin-top: 60px;
 }
 
 html *{
@@ -19,7 +20,10 @@ input[type="checkbox"]{
         height: 60px;
         background: #DBDBDB;
         padding: 0 16px;
-        position: relative;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
         box-shadow: 0 3px 6px rgb(0, 0, 0, 0.2);
         z-index: 300;
     }
